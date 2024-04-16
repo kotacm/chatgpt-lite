@@ -53,7 +53,7 @@ const getApiConfig = () => {
     apiKey = process.env.AZURE_OPENAI_API_KEY || ''
     model = '' // Azure Open AI always ignores the model and decides based on the deployment name passed through.
   } else {
-    let apiBaseUrl = process.env.OPENROUTER_API_URL || 'https://api.openai.com'
+    let apiBaseUrl = process.env.OPENROUTER_API_URL || 'https://openrouter.ai/api/v1'
     if (apiBaseUrl && apiBaseUrl.endsWith('/')) {
       apiBaseUrl = apiBaseUrl.slice(0, -1)
     }
@@ -61,13 +61,12 @@ const getApiConfig = () => {
     apiKey = process.env.OPENROUTER_API_KEY || ''
   }
 
-  return { apiUrl, apiKey, model }
+  return { apiUrl, apiKey }
 }
 
 const getOpenAIStream = async (
   apiUrl: string,
   apiKey: string,
-  model: string,
   messages: Message[]
 ) => {
   const encoder = new TextEncoder()

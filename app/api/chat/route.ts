@@ -53,13 +53,12 @@ const getApiConfig = () => {
     apiKey = process.env.AZURE_OPENAI_API_KEY || ''
     model = '' // Azure Open AI always ignores the model and decides based on the deployment name passed through.
   } else {
-    let apiBaseUrl = process.env.OPENAI_API_BASE_URL || 'https://api.openai.com'
+    let apiBaseUrl = process.env.OPENROUTER_API_URL || 'https://api.openai.com'
     if (apiBaseUrl && apiBaseUrl.endsWith('/')) {
       apiBaseUrl = apiBaseUrl.slice(0, -1)
     }
-    apiUrl = `${apiBaseUrl}/v1/chat/completions`
-    apiKey = process.env.OPENAI_API_KEY || ''
-    model = process.env.OPENAI_MODEL || 'gpt-3.5-turbo'
+    apiUrl = `${apiBaseUrl}/key`
+    apiKey = process.env.OPENROUTER_API_KEY || ''
   }
 
   return { apiUrl, apiKey, model }

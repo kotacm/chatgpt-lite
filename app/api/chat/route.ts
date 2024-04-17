@@ -152,5 +152,6 @@ function sendMessage() {
     })
     .then((aiContent) => {
       displayMessage('\n😈 DevilAI: ' + aiContent, 'ai'); // Ajout du préfixe "AI:" et affichage de la réponse
-    })
-  }
+    }) 
+    .catch(error .catch(error => console.error('Error:', error));
+}
